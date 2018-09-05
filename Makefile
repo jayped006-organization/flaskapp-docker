@@ -17,6 +17,9 @@ help:
 	@echo "Targets:"
 	@echo " init        generate source codebase from GitHub repo"
 	@echo " init-purge  clean up generated code"
+	@echo " dev-up/down start/stop DEV application on port 5000"
+	@echo " dev-logs    examine logging from DEV app"
+	@echo " dev-ps      examine processes running in DEV app"
 
 #Generate project codebase form GitHub using cookiecutter
 init:
