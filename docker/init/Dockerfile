@@ -30,3 +30,6 @@ RUN git clone $repo && \
   git reset --hard df50c8ad6e26dc528996f0cf0ea388d9e84448db
 
 RUN cookiecutter --no-input --config-file cookiecutter.yml cookiecutter-flask
+
+RUN sed -i 's/NODE_ENV=debug webpack-dev-server --port 2992 --hot --inline/NODE_ENV=debug webpack-dev-server --port 2992 --hot --inline --host 0.0.0.0/' ./$APP_NAME/package.json && \
+  sed -i 's/FLASK_DEBUG=1 flask run/FLASK_DEBUG=1 flask run --host=0.0.0.0/' ./$APP_NAME/package.json
