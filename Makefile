@@ -26,10 +26,10 @@ init:
 
 #Remove the generated code, use this before re-running the `init` target
 init-purge:
-	rm -rf ./$(APP_NAME)
+	sudo rm -rf ./$(APP_NAME)
 
 #Write the development secret to file
-.dev-secret:
+.dev-secrets:
 	echo $(DEV_SECRET) > dev-secrets.env
 
 # Build the DEV image
@@ -37,7 +37,7 @@ dev-build:
 	docker-compose -f docker/dev/docker-compose.yml build
 
 #Start up development environment
-dev-up: .dev-secret
+dev-up: .dev-secrets
 	docker-compose -f docker/dev/docker-compose.yml up -d
 
 #Bring down development environment
