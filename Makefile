@@ -29,21 +29,21 @@ init-purge:
 	sudo rm -rf ./$(APP_NAME)
 
 #Write the development secret to file
-.dev-secrets:
-	echo $(DEV_SECRET) > dev-secrets.env
+.dev-secret:
+	echo $(DEV_SECRET) > dev-secret.env
 
 # Build the DEV image
 dev-build:
 	docker-compose -f docker/dev/docker-compose.yml build
 
 #Start up development environment
-dev-up: .dev-secrets
+dev-up: .dev-secret
 	docker-compose -f docker/dev/docker-compose.yml up -d
 
 #Bring down development environment
 dev-down:
 	docker-compose -f docker/dev/docker-compose.yml down
-	rm dev-secrets.env
+	rm dev-secret.env
 
 dev-logs:
 	docker-compose -f docker/dev/docker-compose.yml logs -f
