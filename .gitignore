@@ -1,2 +1,4 @@
 dev-secret.env
 myflaskapp/
+*/dev.db
+*/migrations/**
