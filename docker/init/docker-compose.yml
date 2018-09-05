@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  cookiecutter:
+    build:
+      context: .
+      args:
+        repo: ${TEMPLATE_REPO_URL}
+        full_name: ${FULL_NAME}
+        email: ${EMAIL}
+        github_username: ${GITHUB_USERNAME}
+        docker_username: ${DOCKER_USERNAME}
+        app_name: ${APP_NAME}
+        project_name: ${PROJECT_NAME}
+        project_short_description: ${PROJECT_SHORT_DESCRIPTION}
+    image: ${DOCKER_USERNAME}/cookiecutter:initiator
+    container_name: flask-sql-ci-initiator
+    command: tail -f /dev/null
