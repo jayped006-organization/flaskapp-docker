@@ -33,7 +33,7 @@ init-purge:
 	echo $(DEV_SECRET) > dev-secret.env
 
 # Build the DEV image
-dev-build:
+dev-build: .dev-secret
 	docker-compose -f docker/dev/docker-compose.yml build
 
 #Start up development environment
