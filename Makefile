@@ -1,5 +1,5 @@
 #Import and expose environment variables
-cnf ?= .env_vars
+cnf ?= .env
 include $(cnf)
 export $(shell sed 's/=.*//' $(cnf))
 
