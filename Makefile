@@ -20,6 +20,7 @@ help:
 	@echo " dev-up/down start/stop DEV application on port 5000"
 	@echo " dev-logs    examine logging from DEV app"
 	@echo " dev-ps      examine processes running in DEV app"
+	@echo " test-run    execute flask test in DEV app"
 
 #Generate project codebase form GitHub using cookiecutter
 init:
@@ -53,3 +54,10 @@ dev-logs:
 
 dev-ps:
 	docker-compose -f docker/dev/docker-compose.yml ps
+
+# Run tests (will be executed by travis-ci):
+test-run: .dev-secret
+	docker-compose -f docker/dev/docker-compose.yml up -d
+	sleep 10
+	docker-compose -f docker/dev/docker-compose.yml exec web flask test
+	docker-compose -f docker/dev/docker-compose.yml down	
