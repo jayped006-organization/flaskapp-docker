@@ -12,9 +12,9 @@ help:
 	@echo
 	@echo "Usage: make TARGET"
 	@echo
-	@echo "$(PROJECT_NAME) project automation helper"
+	@echo "$(PROJECT_NAME)"
 	@echo
-	@echo "Targets:"
+	@echo "Target names:"
 	@echo " init        generate source codebase from GitHub repo"
 	@echo " init-purge  clean up generated code"
 	@echo " dev-up/down start/stop DEV application on port 5000"
