@@ -1,5 +1,7 @@
 dev-secret.env
 db_password.txt
 myflaskapp/
+!flaskapp_mods/myflaskapp/
+!flaskapp_mods/myflaskapp/myflaskapp/
 */dev.db
 */migrations/**
