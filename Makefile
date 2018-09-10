@@ -21,6 +21,9 @@ help:
 	@echo " dev-logs    examine logging from DEV app"
 	@echo " dev-ps      examine processes running in DEV app"
 	@echo " test-run    execute flask test in DEV app"
+	@echo " prod-build  build PROD contaainer"
+	@echo " test-run    start PROD services in stack (swarm)"
+	@echo " test-run    step PROD services in stack (swarm)"
 
 #Generate project codebase form GitHub using cookiecutter
 init:
@@ -61,3 +64,15 @@ test-run: .dev-secret
 	sleep 10
 	docker-compose -f docker/dev/docker-compose.yml exec web flask test
 	docker-compose -f docker/dev/docker-compose.yml down	
+
+#Build production
+prod-build:
+	docker-compose -f docker/prod/docker-compose.yml build	
+
+#Deploy production stack
+prod-deploy:
+	docker stack deploy myflaskapp -c docker/prod/docker-compose.yml
+
+#Remove production stack
+prod-rm:
+	docker stack rm myflaskapp	
