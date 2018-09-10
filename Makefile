@@ -22,8 +22,8 @@ help:
 	@echo " dev-ps      examine processes running in DEV app"
 	@echo " test-run    execute flask test in DEV app"
 	@echo " prod-build  build PROD contaainer"
-	@echo " test-run    start PROD services in stack (swarm)"
-	@echo " test-run    step PROD services in stack (swarm)"
+	@echo " prod-deploy start PROD services in stack (swarm)"
+	@echo " prod-rm     stop PROD services in stack (swarm)"
 
 #Generate project codebase form GitHub using cookiecutter
 init:
